@@ -315,6 +315,20 @@
 
   <script src="script.js"></script>
   <style>
+    .pev-track-card { grid-column: 1 / -1; }
+.pev-track-card .dogbo-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.pev-track-card .dogbo-thumbnails { display: contents; }
+.pev-track-card .dogbo-gallery img {
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+@media (max-width: 600px) {
+  .pev-track-card .dogbo-gallery { grid-template-columns: 1fr; }
+}
   .dogbo-gallery { margin-top: 1.25rem; }
   .dogbo-gallery figure { margin: 0; min-width: 0; }
   .dogbo-gallery img { display: block; width: 100%; height: auto; border-radius: .5rem; }
@@ -358,20 +372,21 @@
     galerie.append(vignettes);
     fiche.append(galerie);
   }
-
+if (titre === "PEV TRACK DOGBO") fiche.classList.add("pev-track-card");
   ajouterGalerie("PEV TRACK DOGBO", [
     ["1789071184890", "Écran d’accueil de PEV TRACK DOGBO dans Excel"],
     ["1789071179288", "Fiche de suivi vaccinal d’un enfant fictif, avec les doses administrées et une dose en retard"],
     ["1789071178750", "Tableau de bord des séances complètes par groupe de vaccins"],
     ["1794420749622", "Illustration d’un échange avec des familles autour de la vaccination infantile"]
   ]);
-
+ajouterGalerie("Analyse exploratoire - Surveillance épidémiologique", [
+  ["1792241709312", "Relais communautaires à Dogbo — photo prise lors de la formation"]
+]);
   ajouterGalerie("Formation des relais communautaires à Dogbo", [
     ["1792241706567", "Photo de groupe devant les bureaux de l’arrondissement de Totchangni"],
     ["1792241679897", "Échange en salle pendant une session de formation"],
     ["1792241686783", "Intervention devant les participants à la formation"],
     ["1792241698931", "Participants à une session de formation à Dogbo"],
-    ["1792241709312", "Photo de groupe avec les participants"],
     ["1792241680659", "Vue d’ensemble d’une session de formation"]
   ]);
 </script>
